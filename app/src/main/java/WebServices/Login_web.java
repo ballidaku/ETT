@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.ameba.sharanpal.ett.Login;
@@ -92,7 +93,7 @@ public class Login_web extends AsyncTask<Void,Void,String>
 
                     editor.commit();
 
-                    GlobalUtils.show_Toast("Success", context);
+                    GlobalUtils.show_Toast(mainobj.optString("message"), context);
 
                     context.startActivity(new Intent(context, Main_Tabs.class));
                     ((Activity)context).finish();
@@ -104,15 +105,20 @@ public class Login_web extends AsyncTask<Void,Void,String>
             }
             else
             {
-                context.startActivity(new Intent(context, SignUp.class));
+//                if(inputData.containsKey("type"))
+//                {
+//                    GlobalUtils.show_Toast(mainobj.optString("message"),context);
+//                }
+//                else
+//                {
+                    GlobalUtils.show_Toast(mainobj.optString("message"),context);
+//                }
+
             }
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-
-
     }
-
 }

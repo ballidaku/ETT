@@ -2,20 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ameba.sharanpal.ett" >
 
-    <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--
- To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
-     option is required to comply with the Google+ Sign-In developer policies
-    -->
 
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
@@ -97,7 +90,9 @@
             android:name=".List_Your_Item3"
             android:label="@string/title_activity_list__your__item3" >
         </activity>
-
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -141,6 +136,14 @@
             android:name=".Review_Score"
             android:label="@string/title_activity_review__score" >
         </activity>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
+
     </application>
 
 </manifest>

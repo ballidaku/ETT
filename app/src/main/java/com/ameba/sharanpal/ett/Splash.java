@@ -1,7 +1,9 @@
 package com.ameba.sharanpal.ett;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.Animation;
@@ -50,8 +52,19 @@ class Splash extends Activity
                 }
                 finally
                 {
-                    startActivity(new Intent(Splash.this, Main.class));
+
+                    SharedPreferences shrdpref=getSharedPreferences("ETT", Context.MODE_PRIVATE);
+
+                    if(shrdpref.contains("user_id"))
+                    {
+                        startActivity(new Intent(Splash.this, Main_Tabs.class));
+                    }
+                    else
+                    {
+                        startActivity(new Intent(Splash.this, Main.class));
+                    }
                     finish();
+
                 }
             }
         };

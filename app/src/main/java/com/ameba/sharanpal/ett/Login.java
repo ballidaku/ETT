@@ -22,6 +22,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
@@ -44,9 +57,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -62,13 +77,18 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
         ResultCallback<People.LoadPeopleResult>,CheckBox.OnCheckedChangeListener, GoogleApiClient.ServerAuthCodeCallbacks
 {
     Context con;
-
+//    Button btngooglePlus,btn_loginFb;
     EditText edUsername,edPswd;
+
+    // FACEBOOK INTEGRATION VARIABLES
+    CallbackManager callbackManager;
+    String FirstName;
+    ProfileTracker profileTracker;
+    LoginButton loginButton;// facebook login button
 
     // GOOGLE PLUS VARIABLES
 
     private static final String WEB_CLIENT_ID = "245280530525-s3rss19dq5i1eod706ig1agrk1up8a1g.apps.googleusercontent.com";
-    private static final String TAG = "android-plus-quickstart";
     private static final int STATE_DEFAULT = 0;
     private static final int STATE_SIGN_IN = 1;
     private static final int STATE_IN_PROGRESS = 2;
@@ -91,14 +111,229 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
     void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
         setContentView(R.layout.activity_login);
 
         con=this;
-        findIds();
         findViewById(R.id.sign_up_now).setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
 
+        loginButton = (LoginButton) findViewById(R.id.login_button); // facebook login button
+        loginButton.setBackgroundResource(R.mipmap.fb);
+        loginButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        loginButton.setReadPermissions(Arrays.asList("email"));
+
+        edPswd=(EditText) findViewById(R.id.edpswd);
+        edUsername=(EditText) findViewById(R.id.edUsername);
+        mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
+//        btngooglePlus = (Button)findViewById(R.id.btn_googlePlus);
+//        btn_loginFb = (Button)findViewById(R.id.btn_loginFb);
         mSignInButton.setOnClickListener(this);
+
+
+
+
+        findViewById(R.id.btn_loginFb).setOnClickListener(this);
+        findViewById(R.id.btn_googlePlus).setOnClickListener(this);
+//
+//        btngooglePlus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Log.e("google","clicked");
+//                mSignInButton.performClick();
+//            }
+//        });
+//        btn_loginFb.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                 loginButton.performClick();
+//
+//            }
+//        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
+        {
+            @Override
+            public
+            void onSuccess(LoginResult loginResult)
+            {
+                Log.e("onSuccess", "Hello" + loginResult.toString());
+                profileTracker.startTracking();
+            }
+            @Override
+            public
+            void onCancel()
+            {
+                // App code
+            }
+
+            @Override
+            public
+            void onError(FacebookException exception)
+            {
+                // App code
+            }
+        });
+        profileTracker = new ProfileTracker()
+        {
+            @Override
+            protected
+            void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile)
+            {
+                if( Profile.getCurrentProfile() != null)
+                {
+                    FirstName = currentProfile.getName();
+                }
+
+            }
+        };
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>()
+                {
+                    @Override
+                    public
+                    void onSuccess(LoginResult loginResult)
+                    {
+                        GraphRequest request = GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(),
+                                new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(
+                                            JSONObject object,
+                                            GraphResponse response) {
+                                            // Application code
+                                        try
+                                        {
+
+                                            HashMap<String,String> loginData = new HashMap<String, String>();
+//
+                                            String fb_emailID = object.getString("email");
+
+                                            loginData.put("full_name",FirstName);
+                                            loginData.put("email", fb_emailID);
+                                            loginData.put("type", "F");
+
+                                            new Login_web(Login.this, loginData,GlobalConstant.URL+"login").execute();
+
+                                            try
+                                            {
+                                                FacebookSdk.sdkInitialize(Login.this);
+
+                                                LoginManager loginManager = null;
+
+                                                loginManager = LoginManager.getInstance();
+                                                loginManager.logOut();
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                e.printStackTrace();
+                                            }
+
+
+
+                                        }
+                                        catch(Exception e)
+                                        {
+                                            startActivity(new Intent(Login.this,SignUp.class));
+                                            finish();
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                });
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "email");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+
+                        profileTracker.startTracking();
+                    }
+
+                    @Override
+                    public
+                    void onCancel()
+                    {
+                        Log.e("onCancel", "Hello");
+                    }
+
+                    @Override
+                    public
+                    void onError(FacebookException exception)
+                    {
+                        Log.e("onError", "Hello");
+                    }
+                });
+
+        AccessTokenTracker accessTokenTracker = new AccessTokenTracker()
+        {
+            @Override
+            protected
+            void onCurrentAccessTokenChanged(AccessToken oldAccessToken,AccessToken currentAccessToken)
+            {
+
+            }
+        };
+
+
+
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         if (savedInstanceState != null)
         {
             mSignInProgress = savedInstanceState.getInt(SAVED_PROGRESS, STATE_DEFAULT);
@@ -109,18 +344,19 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
         {
             Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
             mGoogleApiClient.disconnect();
+
+            Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+            Plus.AccountApi.revokeAccessAndDisconnect(mGoogleApiClient);
         }
-        
+
     }
 
 
-
-
-    private void findIds()
+    @Override
+    protected void onDestroy()
     {
-        edPswd=(EditText) findViewById(R.id.edpswd);
-        edUsername=(EditText) findViewById(R.id.edUsername);
-        mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        super.onDestroy();
+        profileTracker.stopTracking();
     }
 
     @Override
@@ -151,6 +387,16 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
     {
         switch (v.getId())
         {
+            case R.id.btn_loginFb:
+                loginButton.performClick();
+                break;
+            case R.id.btn_googlePlus:
+                if (!mGoogleApiClient.isConnecting())
+                {
+                    mSignInProgress = STATE_SIGN_IN;
+                    mGoogleApiClient.connect();
+                }
+                break;
             case R.id.sign_in_button:
                 if (!mGoogleApiClient.isConnecting())
                 {
@@ -163,6 +409,8 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
                 startActivity(new Intent(con,SignUp.class));
                 break;
             case R.id.btn_login:
+
+
 
                 if(validation())
                 {
@@ -200,6 +448,11 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
             edPswd.setError("Enter Password");
             return false;
         }
+        else if(edPswd.getText().toString().length()<6)
+        {
+            edPswd.setError("minimum length should be 6 characters");
+            return false;
+        }
         return true;
     }
 
@@ -225,7 +478,11 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data)
     {
-        switch (requestCode) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode)
+        {
             case RC_SIGN_IN:
                 if (resultCode == RESULT_OK) {
                     // If the error resolution was successful we should continue
@@ -370,21 +627,53 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
 //            findViewById(R.id.layout_server_auth).setVisibility(View.GONE);
 
             // Retrieve some profile information to personalize our app for the user.
-            Person currentUser = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+            final Person currentUser = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
 
             Log.e("==Success name==", currentUser.getDisplayName());
 
-            Log.e("google plus ===","ETT connected to "+Plus.AccountApi.getAccountName(mGoogleApiClient));
+            Log.e("google plus ===", "ETT connected to " + Plus.AccountApi.getAccountName(mGoogleApiClient));
             Log.e("==Success name==", Plus.AccountApi.getAccountName(mGoogleApiClient));
 
 
         // calling login service using google plus account
-            HashMap<String,String> loginData = new HashMap<>();
-            loginData.put("user_name", currentUser.getDisplayName());
-            loginData.put("email",Plus.AccountApi.getAccountName(mGoogleApiClient));
 
-            new Login_web(Login.this,loginData,GlobalConstant.URL+"login").execute();
-            GlobalUtils.show_Toast("Signing in using google Plus Account.",Login.this);
+        AlertDialog.Builder adb = new AlertDialog.Builder(
+                Login.this);
+        adb.setMessage("Account Detected '"+Plus.AccountApi.getAccountName(mGoogleApiClient)+"'"+". Do you want to login with this account?");
+        adb.setTitle("Google Plus Login");
+        adb.setNeutralButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which)
+                    {
+                        HashMap<String, String> loginData = new HashMap<>();
+                        loginData.put("full_name", currentUser.getDisplayName());
+                        loginData.put("email", Plus.AccountApi.getAccountName(mGoogleApiClient));
+                        loginData.put("type", "G");
+
+                        new Login_web(Login.this, loginData, GlobalConstant.URL + "login").execute();
+
+
+                    }
+                });
+        adb.setPositiveButton("no",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which)
+                    {
+                        if (mGoogleApiClient.isConnected())
+                        {
+                            Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
+                            mGoogleApiClient.disconnect();
+
+                        }
+                    }
+                });
+        AlertDialog ad = adb.create();
+        ad.show();
+
 
 
 
@@ -392,6 +681,7 @@ class Login extends Activity implements View.OnClickListener,GoogleApiClient.Con
                     .setResultCallback(this);
             // Indicate that the sign in process is complete.
             mSignInProgress = STATE_DEFAULT;
+
     }
 
     @Override

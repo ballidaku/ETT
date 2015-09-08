@@ -1,2 +1,2 @@
-include ':app', ':PagerSlidingTabStripLibrary'
+include ':app', ':PagerSlidingTabStripLibrary', ':facebook'
 include ':library'
