@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- <color name="Blue">#2980b9</color>-->
+    <color name="White">#ffffff</color>
+    <color name="Red_Light">#E22E2B</color>
+    <color name="Red_Dark">#991815</color>
+    <color name="Blue_Light">#465784</color>
+    <color name="Blue_Dark">#374568</color>
+
+    <color name="Black">#000000</color>
+    <color name="Black_Light">#2f2f2f</color>
+
+    <color name="Gray">#dadada</color>
+    <color name="Gray_Light">#e6e6e6</color>
+    <color name="Gray_Medium">#aab0b3</color>
+
+    <color name="Tabs_Background">#ededed</color>
+    <color name="Indicator">#da3633</color>
+    <color name="Cream">#f5f5f5</color>
+
+    <color name="Green">#639318</color>
+    <color name="Green_Selected">#436510</color>
+
+
+
+
+
+
+</resources>

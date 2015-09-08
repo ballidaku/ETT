@@ -1,0 +1,215 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gray"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/my_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="#fff"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/red_circle"
+            android:gravity="center"
+            android:text="1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/Red_Light"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/ic_bubble"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        android:text="Would you swap this item permantely, temporarily or either way?"
+        android:textSize="@dimen/Button_Text"
+        android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+
+        <LinearLayout
+            android:id="@+id/lay_permanent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+
+            android:background="@color/White"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/Black"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="@color/White"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Permantely"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgv_permanent_tick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@mipmap/ic_tick"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lay_temporarily"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/Black"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/White"
+                android:textSize="@dimen/Medium_Text_Size"
+
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Temporarily"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imgv_temporary_tick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="invisible"
+                android:src="@mipmap/ic_tick"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lay_either"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/Black"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/White"
+                android:textSize="@dimen/Medium_Text_Size"
+
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Either Way"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgv_eitherway_tick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:visibility="invisible"
+                android:src="@mipmap/ic_tick"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtv_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/red_selector"
+        android:drawableRight="@mipmap/ic_right_arrow_white"
+        android:padding="10dp"
+        android:text="Next"
+        android:gravity="center"
+        android:textColor="@color/White"
+        android:textSize="@dimen/Button_Text"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ETT</string>
+
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+
+
+    <string name="login_text">Sign in with social networks</string>
+    <string name="or_login">Or Login</string>
+    <string name="forgot">Forgot your password?</string>
+    <string name="sign_up_now">Sign up Now !</string>
+    <string name="title_activity_main__tabs">Main_Tabs</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home__item__details">Home_Item_Details</string>
+    <string name="title_activity_trade__details">Trade_Details</string>
+    <string name="title_activity_list__your__item">List_Your_Item</string>
+    <string name="title_activity_list__your__item2">List_Your_Item2</string>
+    <string name="title_activity_list__your__item3">List_Your_Item3</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_list__your__item4">List_Your_Item4</string>
+    <string name="title_activity_other__profile">Other_Profile</string>
+    <string name="title_activity_item__list">Item_List</string>
+    <string name="title_activity_liked__post">Liked_Post</string>
+    <string name="title_activity_inbox">Inbox</string>
+    <string name="title_activity_your__interests">Your_Interests</string>
+    <string name="title_activity_review__score">Review_Score</string>
+
+</resources>

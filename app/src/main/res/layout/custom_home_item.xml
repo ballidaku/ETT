@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Classes.RoundedCornersImageView
+            android:id="@+id/imgv_item"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:background="@color/Gray_Light"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$85 "
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/Medium_Text_Size"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop"
+                    android:textColor="@color/Red_Light"
+                    android:textSize="@dimen/Medium_Text_Size"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Koto,Japan"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/Normal_Text_Size"/>
+
+        </LinearLayout>
+
+
+        <Classes.RoundedCornersImageView
+            android:id="@+id/imgv_other_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="25dp"
+            android:src="@mipmap/ic_launcher"/>
+
+
+    </FrameLayout>
+</LinearLayout>
+
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="300dp"
+              android:layout_height="match_parent"
+              android:background="@color/White"
+              android:orientation="vertical">
+
+    <ScrollView
+
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@color/White"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Categoery"
+                android:textColor="@color/Red_Light"
+                android:textSize="@dimen/Text_Heading"
+                android:textStyle="bold"/>
+
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Gray"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Spinner
+                    android:id="@+id/txtv_categoery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Condition"
+                android:textColor="@color/Red_Light"
+                android:textSize="@dimen/Text_Heading"
+                android:textStyle="bold"/>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Gray"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+
+                <Spinner
+                    android:id="@+id/txtv_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Worth Value"
+                android:textColor="@color/Red_Light"
+                android:textSize="@dimen/Text_Heading"
+                android:textStyle="bold"/>
+
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Gray"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+
+                <Spinner
+                    android:id="@+id/txtv_worthvalue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="List by"
+                android:textColor="@color/Red_Light"
+                android:textSize="@dimen/Text_Heading"
+                android:textStyle="bold"/>
+
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Gray"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Spinner
+                    android:id="@+id/txtv_listby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Nearby"
+                android:textColor="@color/Red_Light"
+                android:textSize="@dimen/Text_Heading"
+                android:textStyle="bold"/>
+
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Gray"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Spinner
+                    android:id="@+id/txtv_nearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/txtv_applyfilters_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#F2E22E2B"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Apply Filters"
+        android:textColor="@color/White"
+        android:textSize="@dimen/Button_Text"
+        android:textStyle="bold"/>
+</LinearLayout>

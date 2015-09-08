@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/White"
+              android:orientation="vertical">
+
+
+    <include layout="@layout/my_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/item14"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Luscious Chocolate Cakes"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/Gray"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="This Offer is for"
+                    android:textColor="@color/Red_Light"
+                    android:textSize="@dimen/Medium_Text_Size"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cream_box"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_offerpermanent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="Permanent Swap"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_offerimage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+                        <LinearLayout
+                            android:id="@+id/lay_offertemp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/cream_box"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="Temporary Swap"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_offerimg2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:text="Swap this item"
+                        android:textColor="@color/Red_Light"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cream_box"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapperson"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="In person only"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapitemimgperson"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="By mail only"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapitemimgmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapeitherway"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="Either Way"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapitemimgeitherway"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:text="Swap Options"
+                        android:textColor="@color/Red_Light"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cream_box"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapeopt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="I will select only 1 item to swap"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapop1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapeopt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="I will select multiple item so she/he can pick one she/he likes"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapop2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapeopt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="I will select multiple items to swap for this item"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapop3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/lay_swapeopt4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:padding="10dp"
+                                android:text="I would like to pay for this item"
+                                android:textColor="@color/Black"
+                                android:textSize="@dimen/Medium_Text_Size"/>
+
+                            <ImageView
+                                android:id="@+id/imgv_swapop4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/ic_uncheck"/>
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/Gray"/>
+
+
+                        <ListView
+                            android:id="@+id/lstv_trade_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Payment"
+                    android:textColor="@color/Red_Light"
+                    android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                <LinearLayout
+                    android:id="@+id/paymentlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cream_box"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Add payment request"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="5dp"/>
+
+                        <ImageView
+                            android:id="@+id/imgv_payment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:src="@mipmap/ic_uncheck"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtv_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/Red_Light"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Next"
+                android:textColor="@color/White"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

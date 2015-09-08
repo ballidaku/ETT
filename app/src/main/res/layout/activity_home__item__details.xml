@@ -1,0 +1,552 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/White"
+              android:orientation="vertical">
+
+
+    <include layout="@layout/my_toolbar"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/item10"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|top"
+                    android:padding="10dp"
+                    android:src="@mipmap/heart"/>
+            </FrameLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@color/Gray_Light">
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@color/White"/>
+
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/item12"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="30dp"
+                        android:text="Test Lala"
+                        android:textColor="@color/Red_Light"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/ic_locationlogo"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="35dp"
+                        android:text="Jersy City, Jersy City, US"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Normal_Text_Size"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="14dp"
+                    android:rating="4"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="7dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Condition"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="Brand New"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Expiration Date"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:text="Expire within half year"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Worth Value"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="Under 15 dollars"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Swap Method"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="in person only"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Swap Team"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="Permanentely"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Accept Cash"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="$"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="The Owner is"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="Friend,s friend"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>
+
+              <!--  <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="List is visible to"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:padding="8dp"
+                        android:text="Public"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                </LinearLayout>-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/Gray"/>
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Description:"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/Medium_Text_Size"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Loreum lpmsum is simply dummy text of the priniting and typesetting industry. Loreum lpmsum is the industry's standard dummy text."
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/Normal_Text_Size"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/red_selector_small_round_corners"
+                    android:clickable="true"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Read More"
+                    android:textColor="@color/White"/>
+
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/Gray"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Onwer's Wish List"
+                    android:textColor="@color/Red_Light"
+                    android:textSize="@dimen/Medium_Text_Size"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="1. Cooking Book"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/Gray"/>
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="2. Hand Craft Book"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/Gray"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="3. EQ Book"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/Gray"/>
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="4. General Knowledge Book"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/Gray"/>
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="5. LifeStyle Book"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/Medium_Text_Size"/>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/Gray"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Other Items for same onwer"
+                        android:textColor="@color/Red_Light"
+                        android:textSize="@dimen/Medium_Text_Size"
+                        android:textStyle="bold"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager_item_details"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+
+            <Button
+                android:id="@+id/btn_request_to_swap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Red_Light"
+                android:text="Request To Swap"
+                android:textColor="@color/White"
+                android:textSize="@dimen/Medium_Text_Size"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

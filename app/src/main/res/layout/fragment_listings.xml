@@ -1,0 +1,25 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/add_listing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+Add New Listing"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/White"
+        android:background="@color/Gray_Medium"
+        android:textSize="@dimen/Button_Text" />
+
+
+    <ListView
+        android:id="@+id/listv_listings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
