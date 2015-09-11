@@ -1,13 +1,11 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/White">
 
-    <ScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollview"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
@@ -18,8 +16,8 @@
             android:layout_height="wrap_content"
             android:background="@color/White"
             android:orientation="vertical"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
             android:paddingTop="25dp">
 
 
@@ -28,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/logo"/>
+                android:src="@mipmap/logo" />
 
             <TextView
                 android:id="@+id/tv"
@@ -38,7 +36,7 @@
                 android:gravity="center"
                 android:text="@string/login_text"
                 android:textColor="@color/Gray"
-                android:textSize="@dimen/Text_Heading"/>
+                android:textSize="@dimen/Text_Heading" />
 
 
             <LinearLayout
@@ -52,56 +50,37 @@
                     android:id="@+id/login_button"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
+                    android:background="@mipmap/fb"
                     android:text=""
-                    android:background="@mipmap/fb"
-                    android:visibility="gone"
-                    />
-                <Button
-                    android:id="@+id/btn_loginFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/fb"
-                    />
-
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="match_parent"/>
+                    android:visibility="gone" />
 
                 <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/wechat"/>
+                    android:id="@+id/imgv_loginFb"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/fb" />
 
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="match_parent"/>
 
-                <com.google.android.gms.common.SignInButton
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/wechat" />
+
+
+               <!-- <com.google.android.gms.common.SignInButton
                     android:id="@+id/sign_in_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    />
-                <Button
-                    android:id="@+id/btn_googlePlus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/google"
-                    />
+                    android:visibility="gone" />-->
 
-
-
-
-
-
-
-
-
-
-
-
+                <ImageView
+                    android:id="@+id/imgv_googlePlus"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/google" />
 
 
             </LinearLayout>
@@ -119,10 +98,7 @@
                     android:layout_height="2dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
-
-                    android:background="@color/Gray"
-
-                    />
+                    android:background="@color/Gray" />
 
 
                 <TextView
@@ -133,9 +109,7 @@
                     android:gravity="center"
                     android:text="@string/or_login"
                     android:textColor="@color/Gray"
-                    android:textSize="@dimen/Text_Heading">
-
-                </TextView>
+                    android:textSize="@dimen/Text_Heading" />
 
 
                 <View
@@ -144,8 +118,7 @@
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="0dp"
                     android:layout_weight="1"
-                    android:background="@color/Gray"
-                    />
+                    android:background="@color/Gray" />
 
             </LinearLayout>
 
@@ -157,9 +130,7 @@
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-
-                >
+                android:paddingRight="20dp">
 
 
                 <EditText
@@ -180,14 +151,15 @@
                     android:background="@drawable/gray_stroke"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:padding="10dp"
                     android:maxLength="15"
+                    android:padding="10dp"
                     android:textColorHint="@color/Gray">
 
                 </EditText>
 
 
                 <LinearLayout
+                    android:id="@+id/lay_forgot_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -199,12 +171,12 @@
                         android:layout_height="wrap_content"
                         android:text="@string/forgot"
                         android:textColor="@color/Gray"
-                        android:textSize="@dimen/Normal_Text_Size"/>
+                        android:textSize="@dimen/Normal_Text_Size" />
 
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="2dp"
-                        android:background="@color/Gray"/>
+                        android:background="@color/Gray" />
 
                 </LinearLayout>
 
@@ -220,34 +192,34 @@
                     android:text="Login"
                     android:textColor="@color/White"
                     android:textSize="@dimen/Button_Text"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:text="Don't have an account?"
+                    android:textColor="@color/Gray"
+                    android:textSize="@dimen/Normal_Text_Size" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Don't have an account?"
-                        android:textColor="@color/Gray"
-                        android:textSize="@dimen/Normal_Text_Size"/>
-
-                    <TextView
-                        android:id="@+id/sign_up_now"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="12dp"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="12dp"
-                        android:text="@string/sign_up_now"
-                        android:textColor="@color/Red_Light"
-                        android:textSize="@dimen/Medium_Text_Size"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/sign_up_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="12dp"
+                    android:text="@string/sign_up_now"
+                    android:textColor="@color/Red_Light"
+                    android:textSize="@dimen/Medium_Text_Size"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

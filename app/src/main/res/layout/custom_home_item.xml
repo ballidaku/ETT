@@ -7,8 +7,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        >
         <Classes.RoundedCornersImageView
             android:id="@+id/imgv_item"
             android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/txtv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$85 "
@@ -38,15 +39,18 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/txtv_itemName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Laptop"
                     android:textColor="@color/Red_Light"
+                    android:layout_marginLeft="5dp"
                     android:textSize="@dimen/Medium_Text_Size"/>
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txtv_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Koto,Japan"

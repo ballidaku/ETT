@@ -2,6 +2,8 @@ package Utils;
 
 import android.util.Log;
 
+import org.apache.http.conn.ConnectTimeoutException;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -19,15 +22,16 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * Created by Gagan on 8/18/15.
  */
-public class WebServiceHandler {
+public class WebServiceHandler
+{
 
+    public String performPostCall(String requestURL, HashMap<String, String> postDataParams)
+    {
 
-
-    public String  performPostCall(String requestURL,HashMap<String,String> postDataParams) {
-
-        URL url;
+        URL    url;
         String response = "";
-        try {
+        try
+        {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -37,60 +41,83 @@ public class WebServiceHandler {
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
-
             OutputStream os = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
 
             writer.flush();
             writer.close();
             os.close();
 
-            int responseCode=conn.getResponseCode();
+            int responseCode = conn.getResponseCode();
 
             if (responseCode == HttpsURLConnection.HTTP_OK)
             {
                 String line;
-                BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream
+                        ()));
 
-                while ((line=br.readLine()) != null)
+                while ((line = br.readLine()) != null)
                 {
 
-                    response+=line;
+                    response += line;
 
                 }
-
 
             }
             else
             {
-                response="";
+                response = "ERROR";
 
-                throw new Exception(responseCode+"");
+               // throw new Exception(responseCode + "");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+      /*  catch (Exception e)
+        {
+            response = "ERROR";
+            e.printStackTrace();
+        }*/
+        catch(SocketTimeoutException e)
+        {
+            e.printStackTrace();
+            return "SLOW";
+        }
+        catch(ConnectTimeoutException e)
+        {
+            e.printStackTrace();
+            return "SLOW";
+        }
+        catch(NullPointerException e)
+        {
+            e.printStackTrace();
+            return "ERROR";
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return "SLOW";
+        }
+
 
         return response;
     }
 
-
-
-
-
-    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
+    private String getPostDataString(HashMap<String, String> params) throws  UnsupportedEncodingException
+    {
         StringBuilder result = new StringBuilder();
-        boolean first = true;
-        for(Map.Entry<String, String> entry : params.entrySet()){
-            if (first) {
+        boolean       first  = true;
+        for (Map.Entry<String, String> entry : params.entrySet())
+        {
+            if (first)
+            {
                 first = false;
 
             }
             else
-
+            {
                 result.append("&");
+
+            }
 
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
             result.append("=");
@@ -100,11 +127,9 @@ public class WebServiceHandler {
         return result.toString();
     }
 
-
-
     public String performGetCall(String url) throws Exception
     {
-        URL obj = new URL(url);
+        URL               obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         // optional default is GET
@@ -116,24 +141,21 @@ public class WebServiceHandler {
         System.out.println("\nSending 'GET' request to URL : " + url);
         System.out.println("Response Code : " + responseCode);
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
+        BufferedReader in       = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String         inputLine;
+        StringBuffer   response = new StringBuffer();
 
-        while ((inputLine = in.readLine()) != null) {
+        while ((inputLine = in.readLine()) != null)
+        {
             response.append(inputLine);
         }
         in.close();
 
         //print result
 
-        Log.e("==getCall response====",response.toString());
+        Log.e("==getCall response====", response.toString());
         return response.toString(); //this is your response
 
     }
-
-
-
 
 }

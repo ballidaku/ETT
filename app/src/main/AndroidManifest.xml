@@ -3,8 +3,6 @@
     package="com.ameba.sharanpal.ett" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,13 +11,11 @@
     <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
     <permission
-        android:name="com.ameba.mingle.permission.C2D_MESSAGE"
+        android:name="com.ameba.sharanpal.ett.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.ameba.mingle.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.ameba.mingle.permission.MAPS_RECEIVE" />
-
-
+    <uses-permission android:name="com.ameba.sharanpal.ett.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.ameba.sharanpal.ett.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" /> <!-- To retrieve the account name (email) as part of sign-in: -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -90,20 +86,14 @@
             android:name=".List_Your_Item3"
             android:label="@string/title_activity_list__your__item3" >
         </activity>
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" >
-        </activity>
         <activity
             android:name=".List_Your_Item4"
             android:label="@string/title_activity_list__your__item4" >
@@ -136,13 +126,13 @@
             android:name=".Review_Score"
             android:label="@string/title_activity_review__score" >
         </activity>
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
 
     </application>
 

@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import Utils.GlobalUtils;
+
 
 public
 class Splash extends Activity
@@ -33,6 +35,9 @@ class Splash extends Activity
         imageView.startAnimation(animZoomin);
 
 
+       // GlobalUtils.get_Hash_key(this);
+
+
         splashTread = new Thread()
         {
             @Override
@@ -53,9 +58,9 @@ class Splash extends Activity
                 finally
                 {
 
-                    SharedPreferences shrdpref=getSharedPreferences("ETT", Context.MODE_PRIVATE);
+                    SharedPreferences sp=getSharedPreferences("ETT", Context.MODE_PRIVATE);
 
-                    if(shrdpref.contains("user_id"))
+                    if(sp.contains("user_id"))
                     {
                         startActivity(new Intent(Splash.this, Main_Tabs.class));
                     }
